@@ -1,0 +1,134 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #FF416C, #FF4B2B); /* Adjust gradient colors */
+    overflow: hidden; /* Ensure that balls outside the viewport are hidden */
+    position: relative;
+}
+
+.top-image {
+    width: 87%;
+    height: 60%;
+    max-width: 400px; /* Adjust the maximum width as needed */
+
+    border-radius: 30px; /* Optional: Add border-radius for a rounded image */
+}
+
+.heart-container {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.heart {
+    width: 100px;
+    height: 100px;
+    background-color: #e53935;
+    position: relative;
+    transform: rotate(-45deg);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color: inherit;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 50px;
+}
+
+
+/* Add these styles to your existing CSS */
+#showMoreButton {
+    font-size: 16px; /* Adjust font size as needed */
+    padding: 10px 20px; /* Adjust padding for height and width */
+    background-color: #3498db; /* Set initial background color */
+    color: #ffffff; /* Set initial text color */
+    border: none;
+    cursor: pointer;
+}
+
+#showMoreButton:hover {
+    background-color: #2980b9; /* Change color on hover */
+}
+
+#showMoreButton:active {
+    transform: scale(1.1); /* Increase size on click */
+}
+
+
+
+
+
+/* Animation for the balls */
+.ball {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    animation: moveBall linear infinite;
+}
+
+.ball1 {
+    background-color: #1abc9c;
+    animation-duration: 4s;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ball2 {
+    background-color: #3498db;
+    animation-duration: 3s;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ball3 {
+    background-color: white;
+    animation-duration: 5s;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.ball4 {
+    background-color: #f39c12;
+    animation-duration: 2s;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+@keyframes moveBall {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(50px, -50px);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+    75% {
+        transform: translate(-50px, 50px);
+    }
+}
